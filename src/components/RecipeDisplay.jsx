@@ -21,12 +21,12 @@ const favourite = (isFavourite) => {
 };
 
 // To display the like and dislike button
-const likeDislike = () => {
+const LikeDislike = ({className}) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
 
   return (
-    <div className="flex flex-row">
+    <div className={`flex flex-row ${className}`}>
       <div
         className={`rounded-full p-2 bg-textColors-1 mx-3 mb-1 mt-2 shadow-standard hover:text-[#F39C12]`}
         onClick={() => {
@@ -67,7 +67,7 @@ const likeDislike = () => {
 
 
 // To check if the image is broken and apply the right styling
-const RecipeImage = ({ url, title, onError,isVegan,isHealthy }) => {
+const RecipeImage = ({ url, title, onError,isVegan,width, height }) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
 
@@ -79,8 +79,8 @@ const RecipeImage = ({ url, title, onError,isVegan,isHealthy }) => {
       <img
         src={url}
         alt={title}
-        width={"270px"}
-        height={"163px"}
+        width={width}
+        height={height}
         className="rounded-xl"
         onError={onError}
       />
@@ -111,18 +111,19 @@ const iconLoader = (isVegan, Icon) => {
 const RecipeDisplay = ({ recipe, onErrorImage }) => {
 
   const isVegan = recipe.vegan;
-  const isHealthy = true;
+  
 
 
   return (
     <div
-      className="rounded-xl w-[270px] h-[318px] bg-backgroundColors-1/80 md:my-4 my-1 md:mx-2 mx-1 group group hover:shadow-lg flex flex-col justify-end animation-home-page"
+      className="rounded-xl w-[300px] h-[318px] bg-backgroundColors-1/80 md:my-4 my-6 md:mx-2 mx-1 group group hover:shadow-lg flex flex-col justify-end animation-home-page p-1"
     >
       <RecipeImage
         url={recipe.image}
         title={recipe.title}
         isVegan={isVegan}
-        isHealthy={isHealthy}
+        width={"300px"}
+        height={"318px"}
         onError={onErrorImage}
       />
       <Link
@@ -141,7 +142,7 @@ const RecipeDisplay = ({ recipe, onErrorImage }) => {
           {Math.floor(recipe.spoonacularScore)}%
         </p>
       </Link>
-      {likeDislike()}
+      <LikeDislike className={""}/>
     </div>
   );
 };

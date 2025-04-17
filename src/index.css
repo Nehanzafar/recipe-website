@@ -7,6 +7,9 @@
     @apply outline outline-2 outline-offset-2 outline-primary-2 border-none rounded-lg;
   }
 
+  *{
+    box-sizing: border-boxheaed;
+  }
 }
 
 @font-face {
@@ -34,14 +37,12 @@
 }
 
 @layer components {
-  .hero-section{
-    @apply bg-cover md:h-[100vh] h-[60vh] lg:block flex flex-col 
+  .hero-section {
+    @apply bg-cover bg-center md:h-[100vh] h-[60vh] lg:block flex flex-col;
   }
   .button {
     @apply font-poppins rounded-lg shadow-xl text-[1rem];
   }
-
-
 
   .shadow-standard {
     @apply shadow-lg;
@@ -51,7 +52,22 @@
     @apply transition-all duration-300 ease-in-out;
   }
 
-  .loader {
-    @apply border border-primary-1 border-t-8 border-t-primary-2 rounded-full w-28 h-28 animate-spin m-12;
+  @keyframes anim {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
+  .up-anim {
+    /* @apply anim 0.5s ease-in-out; */
+    animation: anim 1s ease-in-out;
+  }
+}
+
+.loader {
+  @apply border border-primary-1 border-t-8 border-t-primary-2 rounded-full w-28 h-28 animate-spin m-12;
 }

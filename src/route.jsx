@@ -9,6 +9,7 @@ import ErrorPage from "./errorElement";
 import Home from "./routes/Home";
 
 const routes = [
+  
   {
     path: "/",
     element: <Root />,

@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./route";
 import "./index.css";
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {basename: "/recipe-website"});
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

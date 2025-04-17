@@ -7,8 +7,8 @@ import envCompatible from "vite-plugin-env-compatible";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), commonjs(), envCompatible()],
-
+  plugins: [react(), envCompatible()],
+  base: "/recipe-website",
   define: {
     "process.env": process.env, // This maps process.env for compatibility
   },

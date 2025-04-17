@@ -12,7 +12,7 @@ const ErrorPage = () => {
         oops!! there was an Error!
       </h1>
       <p className="text-[1.25rem] font-roboto text-center font-medium m-2 text-textColors-2">
-        {error.statusText || error.message}
+        {error.statusText || "Something went wrong 💀" }
       </p>
     </div>
   );

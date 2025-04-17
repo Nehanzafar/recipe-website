@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
-import GotoTheTop from "../utils/toTheTop";
+// import GotoTheTop from "../utils/toTheTop";
 import logo from "../assets/imgs/SVGs/Logo.svg";
 import Menu from "../assets/imgs/SVGs/menu";
 import { nav } from "../constants/index";
 import Button from "./Button";
 import HamburgerMenu from "./HamburgerMenu";
+import useRouteAsTitle from "../utils/hooks/useRouteAsTitle";
 
 const Header = () => {
   const [openNavigation, setOpenNavigation] = useState(false);
+  useRouteAsTitle()
 
   const handleClick = () => {
     if (!openNavigation) return;
@@ -27,7 +29,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="top-0 w-full z-50 bg-primary-1 px-3 py-3 shadow-xl">
+    <div className="top-0 w-full z-50 bg-primary-1 px-3 py-3 shadow-xl sticky">
       <div className="flex justify-between">
         <Link to={"/"} className="flex flex-row items-center">
           <img
@@ -80,7 +82,7 @@ const Header = () => {
           Sign Up
         </Button>
       </div>
-      <GotoTheTop/>
+      {/* <GotoTheTop/> */}
     </div>
   );
 };
