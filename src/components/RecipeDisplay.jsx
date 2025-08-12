@@ -116,7 +116,7 @@ const RecipeDisplay = ({ recipe, onErrorImage }) => {
 
   return (
     <div
-      className="rounded-xl w-[300px] h-[318px] bg-backgroundColors-1/80 md:my-4 my-6 md:mx-2 mx-1 group group hover:shadow-lg flex flex-col justify-end animation-home-page p-1"
+      className="rounded-xl w-[300px] h-[318px] bg-backgroundColors-1/80 md:my-5 my-6 md:mx-2 mx-2 group group hover:shadow-lg flex flex-col justify-end animation-home-page p-1"
     >
       <RecipeImage
         url={recipe.image}

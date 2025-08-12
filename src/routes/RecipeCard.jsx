@@ -3,6 +3,7 @@ import fetchRecipeById from "../utils/recipes.js";
 import { useLoaderData } from "react-router-dom";
 import localforage from "localforage";
 import ExpandableText from "../components/expandableTest.jsx";
+import useRouteAsTitle from "../utils/hooks/useRouteAsTitle.jsx";
 
 export async function loader({ params }) {
   const fromLocalStorage = await localforage.getItem(`${params.recipeId}`);
@@ -32,6 +33,7 @@ const RecipeCard = () => {
   const parser = new DOMParser();
   const HtmlDoc = parser.parseFromString(recipe.summary, "text/html").body;
 
+  useRouteAsTitle(recipe.title)
   useEffect(() => {
     myRef.current.appendChild(HtmlDoc);
 

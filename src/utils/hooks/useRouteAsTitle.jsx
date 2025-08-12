@@ -1,26 +1,34 @@
-import React from "react";
+import { useDebugValue, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const useRouteAsTitle = () => {
-  const name = "The Ohio Sigma";
-  var curLoc = useLocation().pathname;
-  const title = document.querySelector("head title");
-  React.useEffect(() => {
-    if (curLoc != "/") {
-      if (curLoc.charAt(0) == "/") {
-        var temp3 = curLoc.slice(1);
-        console.log(curLoc, temp, temp2);
+function removeSpecialChars(str) {
+  return str.replace(/[^a-zA-Z0-9\s]/g, "");
+}
 
-        var temp = temp3.charAt(0).toUpperCase();
-        var temp2 = temp3.slice(1);
-        curLoc = temp + temp2;
-        console.log(curLoc, temp, temp2);
-      }
-      title.innerHTML = curLoc;
+function capitalize(str) {
+  const temp = str.slice(0, 1);
+  return temp.toUpperCase() + str.slice(1);
+}
+
+const usePathAsTitle = (title = "") => {
+  const name = "The Ohio Sigma";
+  const curLoc = useLocation().pathname;
+  const titleElement = document.querySelector("head title");
+  if (!titleElement) {
+    const titleElement = document.createElement(title);
+    const head = document.querySelector("head");
+    head?.appendChild(titleElement);
+  }
+  useEffect(() => {
+    if (title === "") {
+      titleElement.innerText =
+        curLoc === "/" ? name : capitalize(removeSpecialChars(curLoc));
     } else {
-      title.innerHTML = name;
+      titleElement.innerText = title;
     }
-  }, [curLoc]);
+  }, [curLoc, name, title, titleElement]);
+  useDebugValue(title);
+  return title;
 };
 
-export default useRouteAsTitle;
+export default usePathAsTitle;

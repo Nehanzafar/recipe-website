@@ -56,7 +56,7 @@ const Header = () => {
                   path={v.path}
                   onClick={handleClick}
                   className={
-                    "lg:my-0 my-3 mx-1 relative lg:py-1 lg:px-2 lg:inline block px-3 py-3 lg:text-[1rem] text-[1.35rem] animation-home-page"
+                    "w-36 md:w-auto md:py-2 md:px-4 lg:my-0 my-3 mx-1 relative lg:inline block px-3 py-3 lg:text-[1rem] text-[1.35rem] animation-home-page"
                   }
                 >
                   {v.title}

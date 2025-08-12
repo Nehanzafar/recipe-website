@@ -1,4 +1,4 @@
-import SearchBar from "../components/search";
+import SearchBar from "../components/Search";
 import { HeroParagraph, mobileHeroParagraph } from "../constants";
 import Button from "../components/Button";
 import { searchPopularRecipes } from "../utils/recipes.js";
@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router-dom";
 import PropTypes from "prop-types";
 import testData from "../constants/testData.json";
 import ResultArray from "../components/ResultArray.jsx";
+import HeroParallax from "../components/parallaxEffect.jsx";
 
 export async function loader() {
   const recipes = await searchPopularRecipes(15);
@@ -27,14 +28,14 @@ const Home = () => {
         // style={{backgroundImage: `url(front-end\src\assets\imgs\Hero img.png)`}}
       >
         <div className="flex flex-col lg:items-start items-center justify-center lg:w-1/2 w-auto h-full lg:ml-16">
-          <h1 className="font-dancingScript lg:text-mainHeading md:text-[6rem] text-[4rem] text-backgroundColors-1 my-1 up-anim">
+          <h1 className="font-dancingScript lg:text-mainHeading md:text-[6rem] text-[5rem] text-backgroundColors-1 my-1 up-anim">
             Search Recipes
           </h1>
           <SearchBar className={"shadow-standard my-1 up-anim"} />
-          <p className="hidden md:block bg-backgroundColors-1/80 text-[16px] text-secondary-1 shadow-standard my-3 p-2 rounded-[20px]  text-wrap lg:w-[45vw] w-[80vw] lg:text-left text-center up-anim">
-            m{HeroParagraph}
+          <p className="hidden md:block bg-backgroundColors-1/80 text-[16px] text-secondary-1 shadow-standard my-3 p-2 rounded-[20px]  text-wrap lg:w-[600px] w-[70vw] lg:text-left text-center up-anim">
+            {HeroParagraph}
           </p>
-          <p className="md:hidden block bg-backgroundColors-1/80 text-[16px] text-secondary-1 shadow-standard my-3 p-2 rounded-[20px]  text-wrap lg:w-[45vw] w-[80vw] lg:text-left text-center up-anim">
+          <p className="md:hidden block bg-backgroundColors-1/80 text-[16px] text-secondary-1 shadow-standard my-3 p-2 rounded-[20px]  text-wrap lg:w-[600px] w-[70vw] lg:text-left text-center up-anim">
             {mobileHeroParagraph}
           </p>
           <div className="lg:block flex justify-around lg:w-auto w-full lg:px-0 md:px-12 px-8 up-anim">
@@ -44,7 +45,7 @@ const Home = () => {
                 "bg-secondary-1 text-backgroundColors-2 hover:bg-secondary-2 hover:text-textColors-1"
               }
               className={
-                "text-backgroundColors-2 md:py-3 md:my-2 py-3 md:px-8 px-5 mx-4 md:text-button md:rounded-2xl text-[1rem] hover:shadow-xl animation-home-page"
+                "text-backgroundColors-2 py-3 md:my-2 px-8 mx-4 md:text-button md:rounded-2xl text-[1rem] hover:shadow-xl animation-home-page"
               }
             >
               Explore
@@ -55,7 +56,7 @@ const Home = () => {
                 "bg-secondary-1 text-backgroundColors-2 hover:bg-secondary-2 lg:ml-6 hover:text-textColors-1"
               }
               className={
-                "text-backgroundColors-2 md:py-3 md:my-2 py-3 md:px-8 px-5 mx-4 md:text-button md:rounded-2xl text-[1rem] hover:shadow-xl animation-home-page"
+                "text-backgroundColors-2 py-3 md:my-2 px-8 mx-4 md:text-button md:rounded-2xl text-[1rem] hover:shadow-xl animation-home-page"
               }
             >
               Random
@@ -64,6 +65,7 @@ const Home = () => {
         </div>
       </div>
       <div>
+        <HeroParallax/>
         <div>
           <h1 className="font-dancingScript lg:text-mainHeading md:text-[6rem] text-[3rem] text-center my-6 text-textColors-2">
             Popular Recipes

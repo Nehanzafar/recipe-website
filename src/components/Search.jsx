@@ -5,21 +5,14 @@ import PropTypes from "prop-types";
 
 const SearchBar = ({ className }) => {
   const url  = useLocation()
-  var action = ""
-  if(url.pathname === "/search") {
-    action = ""
-
-  }
-  else {
-    action = "/search"
-  }
+  var action = url.pathname === "" ? "" : "/search"
   
   return (
     <Form
       action={action}
-      className={`flex flex-row items-center justify-between bg-primary-1 lg:w-[500px] w-[80vw] rounded-[20px] h-[50px] md:h-[60px] has-[:focus]:outline outline-2 has-[:focus]:outline-secondary-1 ${className}`}
+      className={`flex flex-row items-center justify-between bg-primary-1 lg:w-[500px] w-[70vw] rounded-[20px] h-[60px] md:h-[60px] has-[:focus]:outline outline-2 has-[:focus]:outline-secondary-1 ${className}`}
     >
-      <div className="flex items-center w-10/12 ">
+      <div className="flex items-center w-full">
         <FiSearch className="text-[30px] ml-3" />
         <input
           id="q"
